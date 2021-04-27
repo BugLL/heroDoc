@@ -1,0 +1,26 @@
+<%- partial('_partial/head') %>
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none"><%= config.title %></span>
+    <div id="loader"></div>
+    <%- body %>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<%- partial('_partial/mathjax', null, {cache: true}) %>
+<%- partial('_partial/scripts', null, {cache: true}) %>
+
+<%- theme.footer_html %>
+
+</html>

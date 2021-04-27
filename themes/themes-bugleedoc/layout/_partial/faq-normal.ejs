@@ -1,0 +1,30 @@
+<div class="animated fadeInDown" style="width:30%;margin-left:1.5%;">
+	<div style="font-size:6px;color:#a5afbd;margin-left:24px;">常见问题</div>
+	<!-- 关键点在于page.content  toc函数会根据内容得到标题和子标题结果 -->
+	<% var mPostHerf = ""%>
+	<% if (theme.TOC == true) {%>
+		<% page.posts.each(function(post, i){%><!-- 遍历post -->
+			<% if(post.title=="常见问题"){%>  <!-- 根据title取post.content 然后解析获取到目录,hexo 自带的toc没法自定义跳转,所以这里不使用 -->
+				<% mPostHerf = post.path%>
+				<% var ct = post.content%>
+				<% var hs = getHS(3,ct) %>
+				<% for (var i in hs ){
+					if(i>7){
+						break;<!-- 只显示8个结果 -->
+					}
+					var str = hs[i]+"";<!-- 加上""转换为String 类型 -->
+					var mTitle = str.substring(str.indexOf("</a>")+4,str.indexOf("</h3>"));
+					var mId = str.substring(str.indexOf("id=\"")+4,str.indexOf("\">"));
+					var mHref = "#"+mId;
+				%>
+					<div class="animated fadeInDown" style="margin-top:2px;margin-left:16px;color:#414b59;font-size:14px;">
+						<span class="mmlink">•<%- link_to(mPostHerf+mHref, 
+						__(mTitle,mTitle)) %></span>
+					</div>
+				<%}%>
+			<%}%>
+		<%})%>
+	<%}%>
+	<div style="font-size:6px;color:#a5afbd;margin-left:80%;text-decoration:underline;"><span><%- link_to(mPostHerf, 
+						__("查看更多","查看更多")) %></span></div>
+</div>

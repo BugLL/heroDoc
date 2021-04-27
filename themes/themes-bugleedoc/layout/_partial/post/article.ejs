@@ -1,0 +1,161 @@
+<!-- 加一层div 避免缩放导致字体顶出去 -->
+<div style="margin-top:120px;display:table;border-collapse:collapse;">
+    <div id="mm-side-menu" class="leftTag">
+        <ul id="accordion" class="accordion">
+            <li>
+                <div class="link"><i class="fa fa-code"></i>新手指南<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu1">
+                    <% site.posts.each(function(post){ %>
+                    <% var categoryCount = 0 %>
+                    <% var categoryName %>
+                    <% post.categories.data.forEach(function(c){ %>
+                        <% categoryCount = categoryCount+1 %>
+                        <% if(categoryCount==1){categoryName = c.name} %>
+                    <%})%>
+                    <% if( "新手指南" == categoryName ){%>
+                        <% if (categoryCount == 1){%>
+                            <li id="<%- post.path%>"><%- post.title%></li>      
+                        <%}%>     
+                    <%}%>
+                    <% });%>
+                </ul>
+            </li>
+            <li>
+                <div class="link"><i class="fa fa-mobile"></i>SDK下载<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu">
+                    <li>
+                        <div class="link1"><i class="fa fa-paint-brush"></i>平台<i class="fa fa-chevron-down"></i></div>
+                        <ul class="submenu1">
+                            <% site.posts.each(function(post){ %>
+                            <% var categoryCount = 0 %>
+                            <% var categoryName %>
+                            <% var subCategoryName %>
+                            <% post.categories.data.forEach(function(c){ %>
+                                <% categoryCount = categoryCount+1 %>
+                                <% if(categoryCount==1){categoryName = c.name} %>
+                                <% if(categoryCount==2){subCategoryName = c.name} %>
+                            <%})%>
+                            <% if( "SDK下载" == categoryName ){%>
+                                <% if (categoryCount == 2 && subCategoryName =="平台"){%>
+                                    <li><%- post.title%></li>      
+                                <%}%>     
+                            <%}%>
+                            <% });%>        
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="link1"><i class="fa fa-paint-brush"></i>框架<i class="fa fa-chevron-down"></i></div>
+                        <ul class="submenu1">
+                            <% site.posts.each(function(post){ %>
+                            <% var categoryCount = 0 %>
+                            <% var categoryName %>
+                            <% var subCategoryName %>
+                            <% post.categories.data.forEach(function(c){ %>
+                                <% categoryCount = categoryCount+1 %>
+                                <% if(categoryCount==1){categoryName = c.name} %>
+                                <% if(categoryCount==2){subCategoryName = c.name} %>
+                            <%})%>
+                            <% if( "SDK下载" == categoryName ){%>
+                                <% if (categoryCount == 2 && subCategoryName =="框架"){%>
+                                    <li><%- post.title%></li>      
+                                <%}%>     
+                            <%}%>
+                            <% });%>  
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><div class="link"><i class="fa fa-globe"></i>联络文档<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu">
+                    <li>
+                        <div class="link1"><i class="fa fa-paint-brush"></i>客户端<i class="fa fa-chevron-down"></i></div>
+                        <ul class="submenu1">
+                            <% site.posts.each(function(post){ %>
+                            <% var categoryCount = 0 %>
+                            <% var categoryName %>
+                            <% var subCategoryName %>
+                            <% post.categories.data.forEach(function(c){ %>
+                                <% categoryCount = categoryCount+1 %>
+                                <% if(categoryCount==1){categoryName = c.name} %>
+                                <% if(categoryCount==2){subCategoryName = c.name} %>
+                            <%})%>
+                            <% if( "联络文档" == categoryName ){%>
+                                <% if (categoryCount == 2 && subCategoryName =="客户端"){%>
+                                    <li><%- post.title%></li>      
+                                <%}%>     
+                            <%}%>
+                            <% });%>        
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="link1"><i class="fa fa-paint-brush"></i>服务器<i class="fa fa-chevron-down"></i></div>
+                        <ul class="submenu1">
+                            <% site.posts.each(function(post){ %>
+                            <% var categoryCount = 0 %>
+                            <% var categoryName %>
+                            <% var subCategoryName %>
+                            <% post.categories.data.forEach(function(c){ %>
+                                <% categoryCount = categoryCount+1 %>
+                                <% if(categoryCount==1){categoryName = c.name} %>
+                                <% if(categoryCount==2){subCategoryName = c.name} %>
+                            <%})%>
+                            <% if( "联络文档" == categoryName ){%>
+                                <% if (categoryCount == 2 && subCategoryName =="服务器"){%>
+                                    <li><%- post.title%></li>      
+                                <%}%>     
+                            <%}%>
+                            <% });%>  
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><div class="link"><i class="fa fa-globe"></i>常见问题<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu1">
+                    <% site.posts.each(function(post){ %>
+                    <% var categoryCount = 0 %>
+                    <% var categoryName %>
+                    <% post.categories.data.forEach(function(c){ %>
+                        <% categoryCount = categoryCount+1 %>
+                        <% if(categoryCount==1){categoryName = c.name} %>
+                    <%})%>
+                    <% if( "常见问题" == categoryName ){%>
+                        <% if (categoryCount == 1){%>
+                            <li><%- post.title%></li>      
+                        <%}%>     
+                    <%}%>
+                    <% });%>
+                </ul>
+            </li>
+        </ul>
+    </div> 
+    <div class="sidebar">
+                  <!-- 这里的toc是标题 -->
+        <div style="background-color:#ffffff;padding-left:2rem;padding-top:1rem;font-size:1.4rem;font-weight:500;"><h4><%= __('toc') %></h4></div>
+        <% if (theme.TOC == true) { %>
+        <% toc = toc(page.content, {list_number: true, max_depth: 4}) %>
+        <% if (toc.length > 1) { %>
+        <div class="box sticky animated fadeInRight faster">
+            <div id="toc" class="subbox">
+            <!-- toc start -->
+                <%- toc %>
+            <!-- toc end -->
+            </div>
+        </div>
+        <%}%>
+        <%}%>
+    </div>
+   
+    <div id="article-head" style="z-index:1;height:140px; width:70%; position:fixed;background-color:#ffffff;margin-left:15%;">
+        <!-- src-article-head start -->
+        <div style="margin-top:2rem;"><span style="font-size:.8rem;margin-left:1rem;"><% page.categories.data.forEach(function(c){%>
+            <%- c.name%>/
+        <% }) %>
+        <%- page.title%>
+        </span></div>
+        <div style="background-color:#f0f2f5;width:90%;height:2px;margin-left:1rem;"></div>
+        <span style="font-size:2.2rem;margin-left:2.2rem;"><%- page.title %></span>
+        <!-- src-article-head end -->
+    </div> 
+    <div><%- partial('_partial/post/atricle_content') %></div>
+
+</div>

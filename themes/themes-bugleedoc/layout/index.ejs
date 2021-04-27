@@ -1,0 +1,36 @@
+<div id="container" ><!--页面内容-->
+	<div class="index-top">
+		<div class="logo animated fadeInDown">  <!--顶部icon-->
+			<img src="<%- url_for(theme.favicon) %>" alt="">
+			<a class="image-logo" href="/" style="width:120px;"></a>
+		</div>
+		
+	</div>
+	
+	<!-- 灰色背景容器   data-start 输入提示：设置为空 -->
+	<div id="main-container" class="screencontainer">
+		<div id="top-part" class="top-part">
+			<div  class="animated fadeInDown" style="color:#333333;font-size:2rem;text-align:center;margin:0 auto;top:20%;">文档中心</div>
+			<% if(config.search){%>
+				<div class="mmsearch-box"><!--搜索框实现-->
+				    <form class="site-search-form">
+				        <span class="iconfont icon-search"></span>
+				        <input type="text" id="local-search-input" class="st-search-input" maxlength="30" autocomplete="off" placeholder="输入关键词搜索..." style="color:#000000;"/>
+				    </form>
+				    <div id="mmsearch-scrollable" class="search-scrollable">
+				        <div id="local-search-result" class="local-search-result-cls" data-initialise="<%= __('') %>"
+				            data-start="<%= __('') %>" data-empty="<%= __('search_empty') %>">
+				            <span><%= __('')  %></span>
+				        </div>
+				    </div>
+				</div>
+			<%}%>
+		</div>
+		
+		<div id="center-part" class="center-part">
+			<% for (var i in theme.indexconfig){ %>
+					<%- partial('_partial/doc_item',{i:i}) %><!--{i:i}表示传一个i等于i的值给目标-->
+			<%}%>
+		</div>
+	</div>
+</div>

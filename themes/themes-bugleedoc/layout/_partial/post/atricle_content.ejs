@@ -1,0 +1,48 @@
+<div class="article"  id="center-article">  
+    <!-- article main start -->
+    <div class="main">
+        <div class="content markdown animated fadeIn" >
+			<%- page.content %>
+            <% if (theme.post_navigation == true) {%>
+            <div class="post-nav">
+                <hr>
+                <% if (page.prev){ %>
+                    <div class="post-nav-item"><%= __('prev_post') %>:<a href="<%- url_for(page.prev.path) %>" rel="prev" 
+                        title="<%- page.prev.title %>"><%- page.prev.title %>
+                      </a>
+					</div>
+                <% } %>
+                <% if (page.next){ %>
+                    <div class="post-nav-item"><%= __('next_post') %>:<a href="<%- url_for(page.next.path) %>" rel="next" 
+                        title="<%- page.next.title %>"><%- page.next.title %></a>
+					</div>
+                <% } %>                
+            </div>   
+            <% } %>            
+			<!-- waline 评论插件 start-->
+    		<% if (theme.waline.enable == true){%>
+    			<div id="waline" class="waline-style"></div>
+    			<!-- 导入js -->
+    			<%- js(theme.waline.js)%>
+    			<script>
+    			 var metaArray = '<%= theme.waline.meta %>'.split(',');
+    			 var requiredFieldsArray = '<%= theme.waline.requiredFields %>'.split(',');
+    			  new Waline({
+    				el: '#waline',
+    				path: <%= theme.waline.path %>,
+    				serverURL: '<%= theme.waline.serverURL %>',
+    				placeholder: '<%= theme.waline.placeholder %>',
+    				avatar: '<%= theme.waline.avatar %>',
+    				meta: metaArray,
+    				requiredFields:requiredFieldsArray,
+    				pageSize: <%= theme.waline.pageSize %>,
+    				lang: '<%= theme.waline.lang %>',
+    				visitor: <%= theme.waline.visitor %>,
+    				highlight: <%= theme.waline.highlight %>
+    			  });
+    			</script>
+    		<%}%>
+    		<!-- waline 评论插件 end -->
+        </div>
+    <!-- article main end -->
+</div>

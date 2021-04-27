@@ -1,0 +1,64 @@
+<div class="animated fadeInDown screenitem" id="<%- theme.sdk[i]%>_container"><!--根据配置设置id以及实例化控件，这里根据上面的子项键，取到对应的值如usdk-->
+	<div class="screenitem-cover animated fadeIn">
+		<div style="display:flex;">
+			<div class="animated fadeInDown view-icon">
+				<img src="../img/logo_<%- theme.sdk[i]%>.png" class="view-img"/>
+			</div>
+			<div  class="animated fadeInDown view-text">
+				<div style="color:#414b59;font-size:18px;">
+					<%- i%>
+				</div>
+				<div style="color:#a5afbd;font-size:6px;">
+					<% if (theme.sdk[i].indexOf("u")!=-1){%>
+						<%- theme.usdk.description %>
+					<%}else if(theme.sdk[i].indexOf("o")!=-1){%>
+						<%- theme.osdk.description %>
+					<%}else if(theme.sdk[i].indexOf("m")!=-1){%>
+						<%- theme.msdk.description %>
+					<%}%>
+				</div>
+			</div>
+		</div>
+		<div style="margin:0 auto;border:1px;background-color:#f0f2f5;width:80%;height:2px;"></div><!--水平居中-->
+		
+		<div style="margin:0 auto;display:flex;width:90%;height:200px;" class="animated fadeInDown">
+			<div style="width:48%;height:100%;font-size:14px;">
+				<% if (theme.sdk[i].indexOf("u")!=-1){%>
+					<%var cdocs = theme.usdk.clientdoc==null?null:theme.usdk.clientdoc.split('/') %>
+				<%}else if(theme.sdk[i].indexOf("o")!=-1){%>
+					<%var cdocs = theme.osdk.clientdoc==null?null:theme.osdk.clientdoc.split('/') %>
+				<%}else if(theme.sdk[i].indexOf("m")!=-1){%>
+					<%var cdocs = theme.msdk.clientdoc==null?null:theme.msdk.clientdoc.split('/') %>
+				<%}%>
+				<%if (cdocs!=null){%>	
+					<div style="font-size:6px;color:#414b59;margin-left:20px;">客户端文档</div>
+					<% for (k in cdocs){%>				
+						<div style="margin-top:2px;margin-left:16px;">
+								<span class="mmlink">•<%- link_to("2021\\03\\23\\hello-world",
+								 __(cdocs[k], cdocs[k])) %></span>
+						</div>
+					<%}%>
+				<%}%>
+			</div>
+			<div style="margin:0 auto;border:1px;background-color:#f0f2f5;height:80%;width:2px;margin-top:5%;"></div>
+			<div style="width:48%;height:100%;font-size:14px;">
+				<% if (theme.sdk[i].indexOf("u")!=-1){%>
+					<%var sdocs = theme.usdk.serverdoc==null?null:theme.usdk.serverdoc.split('/') %>
+				<%}else if(theme.sdk[i].indexOf("o")!=-1){%>
+					<%var sdocs = theme.osdk.serverdoc==null?null:theme.osdk.serverdoc.split('/') %>
+				<%}else if(theme.sdk[i].indexOf("m")!=-1){%>
+					<%var sdocs = theme.msdk.serverdoc==null?null:theme.msdk.serverdoc.split('/') %>
+				<%}%>	
+				<%if (sdocs!=null){%>
+					<div style="font-size:6px;color:#414b59;margin-left:20px;">服务器文档</div>
+					<% for (l in sdocs){%>
+						<div style="margin-top:2px;margin-left:16px;color:#414b59;">		
+							<span class="mmlink">•<%- link_to("2021\\03\\23\\hello-world", 
+							__(sdocs[l], sdocs[l])) %></span>
+						</div>
+					<%}%>
+				<%}%>
+			</div>
+		</div>
+	</div>
+</div>

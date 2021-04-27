@@ -1,0 +1,28 @@
+	<div id="header"><!--顶部-->
+		<div class="logo animated fadeInDown" ">  <!--顶部icon-->
+			<img src="<%- url_for(theme.favicon) %>" alt="">
+			<a class="image-logo" href="/" style="width:120px;min-width:120px;"></a>
+				
+		</div>	
+		<ul id="menu-menu" class="mmmenu">
+		    <% for (var i in theme.menu){ %>
+		    <li class="animated fadeInDown mmmenu-item mmlink">
+		        <%- link_to(theme.menu[i].lastIndexOf('/') > 0 ? theme.menu[i] : theme.menu[i] + '/', i, {external: false})%>
+		    </li>
+		    <%}%>
+		</ul>
+		<% if(config.search){%>
+			<div class="mmsidesearch-box" style="margin-top:-80px;"><!--搜索框实现-->
+			    <form class="site-search-form">
+			        <span class="iconfont icon-search"></span>
+			        <input type="text" id="local-search-input" class="st-search-input" maxlength="30" autocomplete="off" style="color:#000000;"/>
+			    </form>
+			    <div id="mmsearch-scrollable" class="search-scrollable">
+			        <div id="local-search-result" class="local-search-result-cls" data-initialise="<%= __('') %>"
+			            data-start="<%= __('') %>" data-empty="<%= __('search_empty') %>">
+			            <span><%= __('')  %></span>
+			        </div>
+			    </div>
+			</div>
+		<%}%>
+	</div>
