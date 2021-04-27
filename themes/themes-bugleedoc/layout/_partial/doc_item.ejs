@@ -3,7 +3,7 @@
 	<% var ctArray=ct.split("--")%>
 	<div style="display:flex;margin:0 auto;width:100%;height:23%;">
 		<img style="margin-left:10%;width:50px;height:50px;margin-top:10%;" src="<%- ctArray[1]%>">
-		<div style="margin-left:10%;font-size:1.2rem;margin-top:12%;"><%- i%></div>	
+		<div style="margin-left:5%;font-size:1.2rem;margin-top:12%;"><%- i%></div>	
 	</div>
 	<div class="desc-item">
 		<% if( i == "新手指南" ){%>
@@ -17,7 +17,7 @@
 				<%})%>
 				<% if( i == categoryName ){%>
 					<% if (categoryCount == 1){%>
-					<span class="mmlink" style="font-size:.9rem;border-bottom: 1px solid rgba(217, 217, 217,1);border-bottom-style:dashed">•<a href="javascript:void(0);" onclick="setCookies('<%- post.path %>')"><%-post.title%></a></span>
+					<span class="mmlink" style="margin-left:5%;font-size:.9rem;border-bottom: 1px solid rgba(217, 217, 217,1);border-bottom-style:dashed">•<a href="javascript:void(0);" onclick="setCookies('<%- post.path %>')"><%-post.title%></a></span>
 					<%}%>		
 				<%}%>
 			<% });%>
@@ -34,7 +34,7 @@
 				<%})%>
 				<% if( i == categoryName ){%>
 					<% if (categoryCount == 1){%>
-					<span class="mmlink" style="font-size:.9rem;border-bottom: 1px solid rgba(217, 217, 217,1);border-bottom-style:dashed">•<a href="javascript:void(0);" onclick="setCookies('<%- post.path %>')"><%-post.title%></a></span>
+					<span class="mmlink" style="margin-left:5%;font-size:.9rem;border-bottom: 1px solid rgba(217, 217, 217,1);border-bottom-style:dashed">•<a href="javascript:void(0);" onclick="setCookies('<%- post.path %>')"><%-post.title%></a></span>
 					<%}%>		
 				<%}%>
 			<% });%>
